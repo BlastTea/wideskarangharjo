@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use DateTimeInterface;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -50,5 +51,24 @@ class User extends Authenticatable
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    /**
+     * Prepare a date for array / JSON serialization.
+     *
+     * @param  \DateTimeInterface  $date
+     * @return string
+     */
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->setTimezone('Asia/Jakarta')->format($this->getDateFormat());
+    }
+
+    /**
+     * Function to override the fresh timestamps.
+     */
+    public function freshTimestamp()
+    {
+        return now('Asia/Jakarta');
     }
 }
