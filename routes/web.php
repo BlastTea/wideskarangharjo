@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'pages/guest/welcome');
+Route::view('/', 'pages/guest/homepage');
 
 Route::view('dashboard', 'pages/dashboard/dashboard')
     ->middleware(['auth', 'verified'])
