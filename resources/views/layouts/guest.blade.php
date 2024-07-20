@@ -40,6 +40,9 @@
 
     <!-- Scripts -->
     @vite(['resources/css/guest.css', 'resources/js/guest.js'])
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet"
+        href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 
 <body x-data="{ loading: true, isDarkmode: false }" x-init="window.onload = () => loading = false" :class="{ 'overflow-hidden': loading }"
