@@ -17,20 +17,10 @@ export default {
                     "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
             },
             fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
-                nunito: ["Nunito", "sans-serif"],
-                montserrat: ["Montserrat", "sans-serif"],
-                playfairDisplay: ["'Playfair Display'", "serif"],
-                lora: ["Lora", "serif"],
-                cormorant: ["Cormorant", "serif"],
-                merriweather: ["Merriweather", "serif"],
-                openSans: ["'Open Sans'", "sans-serif"],
-                poppins: ["Poppins", "sans-serif"],
-                lato: ["Lato", "sans-serif"],
-                pacifico: ["Pacifico", "cursive"],
-                dancingScript: ["'Dancing Script'", "cursive"],
-                lobster: ["Lobster", "cursive"],
-                greatVibes: ["'Great Vibes'", "cursive"],
+                sans: ["Poppins", ...defaultTheme.fontFamily.sans],
+                serif: ["Merriweather", "serif"],
+                heading: ["Playfair Display", "serif"],
+                lobster: ["Lobster", "serif"]
             },
             colors: {
                 primary: "#263238",
@@ -113,6 +103,6 @@ export default {
 
     plugins: [forms, daisyui],
     daisyui: {
-        themes: ["light", "dark"],
+        themes: ["light", "corporate"],
     },
 };
