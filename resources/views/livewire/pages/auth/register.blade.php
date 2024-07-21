@@ -27,11 +27,11 @@ new #[Layout('layouts.guest')] class extends Component {
 
         $validated['password'] = Hash::make($validated['password']);
 
-        event(new Registered(($user = User::create($validated))));
+        $user = User::create($validated);
 
+        event(new Registered($user));
         Auth::login($user);
-
-        $this->redirect(route('dashboard', absolute: false), navigate: true);
+        redirect(route('dashboard'));
     }
 }; ?>
 
@@ -54,7 +54,7 @@ new #[Layout('layouts.guest')] class extends Component {
                     <div class="relative mb-4">
                         <x-elements.input-label for="username" :value="__('Username')" />
                         <x-elements.text-input wire:model="username" id="username" class="block mt-1 w-full"
-                            type="text" name="username" required autofocus autocomplete="username" />
+                            type="text" name="username" required autofocus />
                         <x-elements.input-error :messages="$errors->get('username')" class="mt-2" />
                     </div>
 

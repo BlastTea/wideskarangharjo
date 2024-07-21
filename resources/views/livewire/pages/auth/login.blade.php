@@ -14,17 +14,19 @@ new #[Layout('layouts.guest')] class extends Component {
      */
     public function login(): void
     {
-        Log::channel('daily_access')->info("LOGIN INFO: login() executed");
-
         $this->validate();
 
         $this->form->authenticate();
 
-        Session::regenerate();
-
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        if (auth()->check()) {
+            Log::info('LOGIN INFO: User is authenticated');
+            redirect(route('dashboard'));
+        } else {
+            Log::info('LOGIN INFO: User is not authenticated');
+        }
     }
 }; ?>
+
 <section class="py-12 h-screen bg-base-100">
     <div class="w-full lg:w-4/12 px-4 mx-auto">
         <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-md rounded-lg border-0 bg-base-100">

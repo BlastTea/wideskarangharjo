@@ -14,15 +14,16 @@ new #[Layout('layouts.guest')] class extends Component {
      */
     public function login(): void
     {
-        Log::channel('daily_access')->info('LOGIN INFO: login() executed');
-
         $this->validate();
 
         $this->form->authenticate();
 
-        Session::regenerate();
-
-        $this->redirectIntended(default: route('checkout', absolute: false), navigate: true);
+        if (auth()->check()) {
+            Log::info('LOGIN INFO: User is authenticated');
+            redirect(route('dashboard'));
+        } else {
+            Log::info('LOGIN INFO: User is not authenticated');
+        }
     }
 }; ?>
 
@@ -139,6 +140,7 @@ new #[Layout('layouts.guest')] class extends Component {
 
             <x-fragments.modal name="auth" :show="$errors->isNotEmpty()" focusable>
                 <form wire:submit.prevent="login" class="bg-white p-6 sm:p-8 md:p-10 rounded-lg max-w-md mx-auto">
+                    @csrf
                     {{-- Header --}}
                     <h2 class="text-2xl font-semibold text-gray-800 mb-6">
                         {{ __('Login Sebelum melanjutkan') }}
