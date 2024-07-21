@@ -1,13 +1,33 @@
     <!-- Navbar Start -->
-    <header x-data="{ navbarOpen: true, mobileMenuOpen: false, lastScrollY: 0 }" x-init="() => {
+    <header x-data="{
+        navbarOpen: true,
+        mobileMenuOpen: false,
+        lastScrollY: 0,
+        isHero: true,
+    }"
+    x-init="() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isHero = entry.isIntersecting;
+            });
+        }, { threshold: [0, 0.1] });
+
+        observer.observe(document.getElementById('hero'));
+
         window.addEventListener('scroll', () => {
             navbarOpen = window.scrollY <= lastScrollY;
             lastScrollY = window.scrollY;
             mobileMenuOpen = false;
-        })
+        });
     }"
-        :class="{ 'transform translate-y-0 opacity-100': navbarOpen, 'transform -translate-y-full opacity-0': !navbarOpen }"
-        class="fixed top-0 left-0 right-0 z-50 flex flex-col justify-between navbar-transition text-base-light hover:bg-base-light hover:text-base-dark">
+    :class="{
+        'transform translate-y-0 opacity-100': navbarOpen,
+        'transform -translate-y-full opacity-0': !navbarOpen,
+        'bg-transparent text-white': isHero,
+        'bg-base-light text-base-dark': !isHero
+    }"
+    class="fixed top-0 left-0 right-0 z-50 flex flex-col justify-between navbar-transition hover:bg-base-light hover:text-base-dark">
+
 
         <div class="container mx-auto px-4 animate-fadeInDown z-10">
             <div class="flex flex-wrap items-center justify-between py-3 animate-fadeInDown">

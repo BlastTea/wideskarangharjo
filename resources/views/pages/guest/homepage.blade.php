@@ -31,7 +31,7 @@ new #[Layout('layouts.guest')] class extends Component {
         <main class="min-h-screen">
             <x-elements.auth-session-status class="mb-4" :status="session('status')" />
 
-            <section class="hero relative bg-cover bg-center text-white"
+            <section id="hero" class="hero relative bg-cover bg-center text-white"
                 style="background-image: url('{{ asset('storage/background/background_13.jpg') }}');">
                 <div class="absolute inset-0 bg-black opacity-55"></div>
                 <div class="container mx-auto px-4 py-16 relative z-10">
@@ -42,10 +42,10 @@ new #[Layout('layouts.guest')] class extends Component {
                             edukasi
                             yang menawarkan pengalaman unik dan menarik di Jember.
                         </p>
-                        <div class="flex gap-3 mt-10 items-center">
+                        <div class="flex flex-wrap gap-3 mt-10 items-center">
                             <a href="javascript:void(0)" class="btn bg-white">Lihat Aktivitas <i
                                     class="pl-2 fas fa-play"></i></a>
-                            <button class="btn btn-primary">Pesan Paket Wisata<i class="pl-2 fas fa-plus"></i></button>
+                            <button class="btn btn-primary text-base-100">Pesan Paket Wisata<i class="pl-2 fas fa-plus"></i></button>
                             <button class="flex items-center justify-center w-10 h-10 border rounded-full outline-icon">
                                 <i class="fas fa-share-alt"></i>
                             </button>
@@ -55,7 +55,7 @@ new #[Layout('layouts.guest')] class extends Component {
             </section>
 
             <!-- ====== Pricing Section Start -->
-            <section class="relative z-10 overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
+            <section id="price" class="relative z-10 overflow-hidden bg-white dark:bg-dark pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]">
                 <div class="container mx-auto">
                     <div class="-mx-4 flex flex-wrap">
                         <div class="w-full px-4">
@@ -70,50 +70,8 @@ new #[Layout('layouts.guest')] class extends Component {
                             </div>
                         </div>
                     </div>
-                    <div class="-mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 px-2">
+                    <div class="-mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         <x-fragments.card image="{{ asset('storage/background/background_1.png') }}" price="IDR 10.000"
-                            description="Paket Agrowisata" :isLoggedIn="auth()->check()">
-                            <x-slot name="features">
-                                <div class="flex items-center">
-                                    <i class="fas fa-ticket-alt mr-2"></i>1 orang
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-utensils mr-2"></i>Snack & Minuman
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-star mr-2"></i>Pengalaman Eksklusif
-                                </div>
-                            </x-slot>
-                        </x-fragments.card>
-                        <x-fragments.card image="{{ asset('storage/background/background_3.png') }}" price="IDR 10.000"
-                            description="Paket Agrowisata" :isLoggedIn="auth()->check()">
-                            <x-slot name="features">
-                                <div class="flex items-center">
-                                    <i class="fas fa-ticket-alt mr-2"></i>1 orang
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-utensils mr-2"></i>Snack & Minuman
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-star mr-2"></i>Pengalaman Eksklusif
-                                </div>
-                            </x-slot>
-                        </x-fragments.card>
-                        <x-fragments.card image="{{ asset('storage/background/background_5.png') }}" price="IDR 10.000"
-                            description="Paket Agrowisata" :isLoggedIn="auth()->check()">
-                            <x-slot name="features">
-                                <div class="flex items-center">
-                                    <i class="fas fa-ticket-alt mr-2"></i>1 orang
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-utensils mr-2"></i>Snack & Minuman
-                                </div>
-                                <div class="flex items-center">
-                                    <i class="fas fa-star mr-2"></i>Pengalaman Eksklusif
-                                </div>
-                            </x-slot>
-                        </x-fragments.card>
-                        <x-fragments.card image="{{ asset('storage/background/background_6.png') }}" price="IDR 10.000"
                             description="Paket Agrowisata" :isLoggedIn="auth()->check()">
                             <x-slot name="features">
                                 <div class="flex items-center">
