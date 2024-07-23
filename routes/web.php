@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'pages/guest/homepage');
 
+Route::view('/checkout', 'pages/dashboard/wisatawan/checkout')->middleware(['auth', 'verified'])
+    ->name('checkout');
+;
+
 Route::view('dashboard', 'pages/dashboard/dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -12,4 +16,4 @@ Route::view('profile', 'pages/profile/profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

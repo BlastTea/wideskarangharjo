@@ -14,28 +14,28 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         User::factory()->create([
-            'username' => 'BlastTea',
+            'name' => 'BlastTea',
             'email' => 'arya.jbr.999@gmail.com',
             'role' => 'admin',
             'password' => '$2y$12$LPU8Ibbfa7r6QtDHo3WVHurslDOKtrR48I6mad6.5flQlyGlfXm.2',
         ]);
 
         User::factory()->create([
-            'username' => 'admin',
+            'name' => 'admin',
             'email' => 'admin@gmail.com',
             'role' => 'admin',
             'password' => '$2y$12$LPU8Ibbfa7r6QtDHo3WVHurslDOKtrR48I6mad6.5flQlyGlfXm.2',
         ]);
 
         User::factory()->create([
-            'username' => 'manager',
+            'name' => 'manager',
             'email' => 'manager@gmail.com',
             'role' => 'manager',
             'password' => '$2y$12$LPU8Ibbfa7r6QtDHo3WVHurslDOKtrR48I6mad6.5flQlyGlfXm.2',
         ]);
 
         User::factory()->create([
-            'username' => 'visitor',
+            'name' => 'visitor',
             'email' => 'visitor@gmail.com',
             'role' => 'visitor',
             'password' => '$2y$12$LPU8Ibbfa7r6QtDHo3WVHurslDOKtrR48I6mad6.5flQlyGlfXm.2',
