@@ -18,5 +18,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+
 vendor.zip
 public/build.zip
+public/background.zip
