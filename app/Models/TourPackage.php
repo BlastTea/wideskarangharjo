@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Casts\MoneyCast;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TourPackage extends BaseModel
 {
@@ -13,6 +14,10 @@ class TourPackage extends BaseModel
         'name',
         'price',
         'description',
+    ];
+
+    protected $casts = [
+        'price' => MoneyCast::class,
     ];
 
     public function transactionDetails(): HasMany
@@ -34,4 +39,6 @@ class TourPackage extends BaseModel
     {
         return $this->hasMany(Service::class);
     }
+
+
 }
